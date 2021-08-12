@@ -4,7 +4,7 @@ const path = require("path");
 require("dotenv").config({path: "./config.env"});
 const PORT = process.env.PORT;
 
-app.get("/",(req,res)=>{
+app.get("/staus",(req,res)=>{
     res.json({
         "status": true
     })
@@ -21,6 +21,8 @@ if (process.env.NODE_ENV === 'production'){
         res.sendFile(path.resolve(__dirname, 'client','build','index.html'));  
     })
   
+}else{
+    console.log("you are runnig in development nome")
 }
 
 app.listen(PORT,(err)=>{
